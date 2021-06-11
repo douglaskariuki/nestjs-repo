@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from "@nestjs/graphql";
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -10,7 +11,7 @@ import { StudentModule } from './student/student.module';
   imports: [
     TypeOrmModule.forRoot({
       type: "mongodb",
-      url: "mongodb+srv://douglas:1V9doWRkURkmz09n@cluster0.pg4a0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+      url: process.env.DB_URL,
       synchronize: true,
       useUnifiedTopology: true,
       entities: [
